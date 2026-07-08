@@ -1,12 +1,11 @@
-require("dotenv").config();
+import express from "express";
+import cors from "cors";
+import connectDB from "./config/db.js";
+import dotenv from "dotenv";
 
-const express = require("express");
-const cors = require("cors");
-
-const connectDB = require("./config/db");
-
+dotenv.config();
 const app = express();
-console.log(process.env.MONGODB_URI);
+
 // Connect Database
 connectDB();
 
