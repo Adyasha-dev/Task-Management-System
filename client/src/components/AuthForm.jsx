@@ -14,6 +14,7 @@ const AuthForm = ({ mode, onSubmit }) => {
   const [error, setError] = useState("");
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -86,20 +87,29 @@ const AuthForm = ({ mode, onSubmit }) => {
           <div className="mb-3">
             <label>Password</label>
 
-            <input
-              type="password"
-              className="form-control"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
+            <div className="input-group">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="form-control"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </div>
 
           <button className="btn btn-primary w-100">
             {loading ? "Loading..." : isRegister ? "Register" : "Login"}
           </button>
         </form>
-
         <p className="text-center mt-3">
           {isRegister ? (
             <Link to="/login">Already have an account?</Link>
