@@ -14,7 +14,9 @@ connectDB();
 // Middlewares
 app.use(
   cors({
-    origin: "*",
+    origin: "https://task-management-system-uiqf-ys8ofb7mo.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
 app.use(express.json());
