@@ -10,16 +10,15 @@ const app = express();
 
 // Connect Database
 connectDB();
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // Middlewares
 app.use(
   cors({
     origin: "https://task-management-system-uiqf-ys8ofb7mo.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   }),
 );
-app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({ message: "Task Management API is running" });
