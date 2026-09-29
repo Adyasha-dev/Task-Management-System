@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middlewares
 app.use(
   cors({
-    origin: "https://task-management-system-uiqf.vercel.app",
+    origin: "*",
     credentials: true,
   }),
 );
