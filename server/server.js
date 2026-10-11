@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middlewares
 app.use(
   cors({
-    origin: "*",
+    origin: "https://task-management-system-uiqf.vercel.app",
     credentials: true,
   }),
 );
@@ -30,6 +30,6 @@ app.use("/api/tasks", taskRoutes);
 // Port
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
